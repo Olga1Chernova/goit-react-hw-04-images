@@ -29,7 +29,7 @@ const ImageFinder = () => {
       const fetchImages = async () => {
         try {
           setLoading(true);
-          const data = await searchImages(search, page);
+          const data = await searchImages(search, page); //search & page are reachable as global variables
           setItems(prevItems => [...prevItems, ...data.hits]);
         } catch (error) {
           setError(error.message);
