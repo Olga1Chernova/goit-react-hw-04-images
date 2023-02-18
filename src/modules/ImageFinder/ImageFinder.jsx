@@ -22,6 +22,8 @@ const ImageFinder = () => {
   const [showModal, setShowModal] = useState(false);
   const [postDetails, setPostDetails] = useState(null);
 
+
+  //componentDidUpdate()
   useEffect(() => {
     if (!search) {
       return;
@@ -29,7 +31,7 @@ const ImageFinder = () => {
       const fetchImages = async () => {
         try {
           setLoading(true);
-          const data = await searchImages(search, page); //search & page are reachable as global variables
+          const data = await searchImages(search, page); 
           setItems(prevItems => [...prevItems, ...data.hits]);
         } catch (error) {
           setError(error.message);
