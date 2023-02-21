@@ -1,12 +1,16 @@
-import { useState } from "react";
+
 import PropTypes from "prop-types";
 import { FcSearch } from 'react-icons/fc';
 
 import css from "./searchbar.module.scss";
 import initialState from "./initialState";
+import useForm from "../../../shared/hooks/useForm";
 
 const Searchbar = ({onSubmit}) => {
-   const [state, setState] = useState({ ...initialState });
+   //use custom form hook
+  const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit });
+
+  /*const [state, setState] = useState({ ...initialState });
 
    const handleChange = ({ target }) => {
      const { name, value } = target;
@@ -20,6 +24,7 @@ const Searchbar = ({onSubmit}) => {
      onSubmit({ ...state });
      setState({ ...initialState });
   }
+  */
   
   const { search } = state;
 
