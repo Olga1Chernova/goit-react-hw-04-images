@@ -1,3 +1,4 @@
+import  { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import css from './image-gallery.module.scss';
@@ -19,7 +20,7 @@ const ImageGallery = ({ items, showImg }) => {
   );
 };
 
-export default ImageGallery;
+export default memo(ImageGallery);
 
 ImageGallery.defaultProps = {
   items: [],

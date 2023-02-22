@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 
 import Searchbar from "./Searchbar/Searchbar";
@@ -42,25 +42,25 @@ const ImageFinder = () => {
       fetchImages();
   }, [search, page, setError, setItems, setLoading])
 
-  const findImage = ({ search }) => {
+  const findImage = useCallback(({ search }) => {
     setSearch(search);
     setItems([]);
     setPage(1);
-  }
+  }, []);
 
-  const showImg = ({ largeImageURL, tags }) => {
-    setPostDetails({ largeImageURL, tags });
+  const showImg = useCallback(({largeImageURL, tags}) =>{
+    setPostDetails(largeImageURL, tags);
     setShowModal(true); 
-  }
+  }, []);
 
-  const loadMore = () => {
+  const loadMore = useCallback(() => {
     setPage(prevPage => prevPage + 1);
-  }
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setShowModal(false);
     setPostDetails(null);
-  }
+  }, []); 
 
   return (
     <div className={css.App}>
