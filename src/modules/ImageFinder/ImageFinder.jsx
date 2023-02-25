@@ -22,7 +22,7 @@ const ImageFinder = () => {
   const [showModal, setShowModal] = useState(false);
   const [postDetails, setPostDetails] = useState(null);
 
-
+  //console.log(postDetails);
   //componentDidUpdate()
   useEffect(() => {
     if (!search) {
@@ -48,8 +48,8 @@ const ImageFinder = () => {
     setPage(1);
   }, []);
 
-  const showImg = useCallback(({largeImageURL, tags}) =>{
-    setPostDetails(largeImageURL, tags);
+  const showImg = useCallback((data) =>{
+    setPostDetails(data);
     setShowModal(true); 
   }, []);
 
